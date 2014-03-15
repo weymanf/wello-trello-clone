@@ -1,0 +1,15 @@
+<h1> <%= board.get("title") %> </h1>
+
+<ul> 
+
+<% board.lists().each(function(list) { %>
+	<li><%= list.get("title") %> </li>
+
+<% }); %>
+
+</ul>
+
+<br>
+<div class="list-new"></div>
+
+<a href="#">Back to Index</a>
