@@ -39,7 +39,7 @@ window.Wello.Routers.AppRouter = Backbone.Router.extend({
 		}
 
 		this.currentView = view;
-		$("body").html(view.render().$el);
+		$("#content").html(view.render().$el);
 	}
 
 });

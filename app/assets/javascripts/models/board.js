@@ -19,7 +19,6 @@ window.Wello.Models.Board = Backbone.Model.extend({
 			this.lists().set(jsonResp.lists);
 			delete jsonResp.lists;
 		}
-
 		return jsonResp;
 	}
 	

@@ -21,6 +21,17 @@ Backbone.CompositeView = Backbone.View.extend({
 		$selectorEl.append(subview.$el);	
 	},
 
+	remove: function () {
+    Backbone.View.prototype.remove.call(this);
+
+    // remove all subviews as well
+    _(this.subviews()).each(function (selectorSubviews, selector) {
+      _(selectorSubviews).each(function (subview){
+        subview.remove();
+      });
+    });
+  },
+
 	subviews: function() {
 		if (!this._subviews) {
 			this._subviews = {};
@@ -35,7 +46,7 @@ Backbone.CompositeView = Backbone.View.extend({
     _(this.subviews()).each(function (selectorSubviews, selector) {
       var $selectorEl = view.$(selector);
       $selectorEl.empty();
-
+     
       _(selectorSubviews).each(function (subview) {
         $selectorEl.append(subview.render().$el);
         subview.delegateEvents();

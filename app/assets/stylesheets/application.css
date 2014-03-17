@@ -11,6 +11,9 @@
  *= require_self
  *= require_tree .
  */
+ .controls {
+  float:right;
+ }
 
 body {
   margin: 0;

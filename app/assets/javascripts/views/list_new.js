@@ -16,7 +16,6 @@ window.Wello.Views.ListNewView = Backbone.View.extend({
 		
 		var params = $(event.target.parentElement).serializeJSON()["list"];
 		var list = new Wello.Models.List(params);
-		debugger
 		this.board.lists().create(params);
 	},
 
