@@ -4,6 +4,7 @@ window.Wello.Views.BoardShowView = Backbone.CompositeView.extend({
 
 	initialize: function() {
 		this.listenTo(this.model, "sync", this.render);
+		// this.listenTo(this.model.lists(), "add", addList)
 
 		var listNewView = new Wello.Views.ListNewView({
 			board: this.model

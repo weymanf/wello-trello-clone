@@ -1,11 +1,12 @@
-<h2> Add New Subview </h2>
+<h2> Add New List </h2>
 <form>
 	<input type="hidden" name="list[board_id]" value="<%= board.id %>">
 
-	<input type="hidden" name="list[rank_id]" value="<%= board.lists().length %>">
+	<input type="hidden" name="list[rank]" value="<%= board.lists().length %>">
 
 	<label>
 		Title
 		<input type="text" name="list[title]">
 	</label>
+	<button class="list-new">>Submit</button>
 </form>
