@@ -13,10 +13,11 @@ window.Wello.Views.ListNewView = Backbone.View.extend({
 		var view = this;
 
 		event.preventDefault();
-		
+		debugger
 		var params = $(event.target.parentElement).serializeJSON()["list"];
 		var list = new Wello.Models.List(params);
 		this.board.lists().create(params);
+		$("#list-title").val("");
 	},
 
 	render: function() {

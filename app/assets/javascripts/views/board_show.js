@@ -14,6 +14,14 @@ window.Wello.Views.BoardShowView = Backbone.CompositeView.extend({
 		$("#members-only").val("");
 	},
 
+	removeBoard: function() {
+		this.model.destroy({
+			success: function() {
+				Backbone.history.navigate("", {trigger: true});
+			}
+		});
+	},
+
 
 	initialize: function() {
 		this.listenTo(this.model, "sync", this.render);
