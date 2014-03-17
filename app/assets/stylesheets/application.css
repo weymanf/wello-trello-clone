@@ -11,6 +11,9 @@
  *= require_self
  *= require_tree .
  */
+@import "bootstrap";
+
+
  .controls {
   float:right;
  }
