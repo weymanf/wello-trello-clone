@@ -7,7 +7,8 @@ class ListsController < ApplicationController
   
   def show
     @list = List.find(params[:id])
-    render json: @list
+    @cards = @list.cards
+    render :show
   end
   
   def create

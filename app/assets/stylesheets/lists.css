@@ -1,0 +1,17 @@
+.list {
+	float: left;
+	margin-left: 30px;
+	margin-top: 30px;
+	border-style: solid;
+	border-color: blue;
+	width: 200px;
+}
+
+
+.list-new {
+	float: left;
+	margin-left: 30px;
+	margin-top: 30px;
+	border-style: solid;
+	border-color: blue;
+}

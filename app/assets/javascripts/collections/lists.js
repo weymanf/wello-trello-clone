@@ -13,4 +13,6 @@ window.Wello.Collections.Lists = Backbone.Collection.extend({
 	url: function () {
 		return '/boards/' + this.board.id + '/lists';
 	}
+
+
 });

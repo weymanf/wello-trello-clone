@@ -40,7 +40,6 @@ window.Wello.Views.BoardShowView = Backbone.CompositeView.extend({
 		var listsShowView = new Wello.Views.ListShowView({
 			model: list
 		});
-		console.log("why");
 		this.addSubview(".show-lists", listsShowView);
 		listsShowView.render();
 	},
