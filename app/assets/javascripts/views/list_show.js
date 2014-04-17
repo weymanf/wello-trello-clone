@@ -2,6 +2,10 @@ window.Wello.Views.ListShowView = Backbone.CompositeView.extend({
 	template: JST["list/list_show"],
 	className: "list",
 
+	events: {
+		"click .add-a-card": "addForm"
+	},
+
 	initialize: function() {
 		this.listenTo(this.model, "sync", this.render);
 		this.listenTo(this.model.cards(), "add", this.addCard)
@@ -13,6 +17,11 @@ window.Wello.Views.ListShowView = Backbone.CompositeView.extend({
 		})
 
 		this.addSubview(".cards-new-form", cardsNewView);
+	},
+
+	addForm: function(event) {
+		$(event.currentTarget).prev().css("display","initial")
+		$(event.currentTarget).css("display","none")
 	},
 
 	addCard: function(card) {

@@ -1,6 +1,10 @@
 window.Wello.Views.CardShowView = Backbone.CompositeView.extend({
 	template: JST["card/card_show"],
-	className: 'card data-id=',
+	className: function() {
+		return 'card data-id=' + this.model.get("id");
+	},
+
+	id: "draggable",
 
 	render: function() {
 		var cardShow = this.template({
@@ -9,6 +13,7 @@ window.Wello.Views.CardShowView = Backbone.CompositeView.extend({
 		this.$el.html(cardShow);
 		return this;
 	}
+
 
 
 

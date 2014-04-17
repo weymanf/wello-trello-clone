@@ -12,10 +12,8 @@
  *= require_tree .
  */
 
+@import "bootstrap";  
 
- .controls {
-  float:right;
- }
 
 body {
   margin: 0;
@@ -44,6 +42,8 @@ div#content {
   margin-bottom: 10px;
   
   overflow-x: scroll;
+
+  padding-bottom: 300px;
 }
 
 .white_area {

@@ -2,9 +2,11 @@
 	float: left;
 	margin-left: 30px;
 	margin-top: 30px;
+	border-radius: 10px;
 	border-style: solid;
 	border-color: blue;
 	width: 200px;
+	padding: 10px;
 }
 
 
@@ -14,4 +16,19 @@
 	margin-top: 30px;
 	border-style: solid;
 	border-color: blue;
+	border-radius: 10px;
+	padding: 10px;
 }
+
+.cards-new-form {
+	display: none;
+}
+
+.list-conts {
+	margin-left: 310px;
+}
+
+ .controls {
+  float:right;
+  position: absolute;
+ }
