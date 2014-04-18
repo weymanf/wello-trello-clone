@@ -1,3 +1,12 @@
+.card {
+  width: 100%;
+  margin-top: 2px;
+  border-radius: 2px;
+  background-color: white;
+  opacity: 0.9;
+  position: top;
+}
+
 
 .flexwidth {
   display: inline-block;

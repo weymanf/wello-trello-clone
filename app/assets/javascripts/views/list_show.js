@@ -40,7 +40,9 @@ window.Wello.Views.ListShowView = Backbone.CompositeView.extend({
 		})
 		this.$el.html(listShow);
 		this.renderSubviews();
-		$(".sortable").sortable();
+		$(".sortable").sortable({
+			connectWith: ".sortable"
+		});
 		return this;
 	}
 
