@@ -19,7 +19,8 @@ window.Wello.Views.CardsNewView = Backbone.View.extend({
 				list.cards().add(newCard);
 			}
 		});
-		$("#card-title").val("");
+
+		$(event.currentTarget).prev().val("");
 		$(event.currentTarget).closest(".cards-new-form").next().css("display","initial")
 		$(event.currentTarget).closest(".cards-new-form").css("display","none")
 	},

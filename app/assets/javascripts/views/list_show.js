@@ -11,7 +11,7 @@ window.Wello.Views.ListShowView = Backbone.CompositeView.extend({
 		this.listenTo(this.model.cards(), "add", this.addCard)
 
 		
-		this.model.cards().each(this.addCard.bind(this));
+		this.model.cards().sort().each(this.addCard.bind(this));
 		var cardsNewView = new Wello.Views.CardsNewView({
 			list: this.model
 		})
@@ -30,6 +30,7 @@ window.Wello.Views.ListShowView = Backbone.CompositeView.extend({
 		});
 	
 		this.addSubview(".cards-show", cardsShowView);
+		
 		cardsShowView.render();
 	},
 
@@ -40,6 +41,7 @@ window.Wello.Views.ListShowView = Backbone.CompositeView.extend({
 		})
 		this.$el.html(listShow);
 		this.renderSubviews();
+		
 		$(".sortable").sortable({
 			connectWith: ".sortable"
 		});

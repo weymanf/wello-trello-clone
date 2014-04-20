@@ -24,11 +24,12 @@ window.Wello.Views.BoardShowView = Backbone.CompositeView.extend({
 
 
 	initialize: function() {
+
 		this.listenTo(this.model, "sync", this.render);
 		this.listenTo(this.model.lists(), "add", this.addList)
 
 		//ned has it don't know.
-		// this.model.lists().each(this.addList.bind(this));
+		this.model.lists().each(this.addList.bind(this));
 
 		var listNewView = new Wello.Views.ListNewView({
 			board: this.model
@@ -51,6 +52,7 @@ window.Wello.Views.BoardShowView = Backbone.CompositeView.extend({
 		this.$el.html(showContent);
 		
 		this.renderSubviews();
+
 		return this;
 	}
 

@@ -11,6 +11,8 @@ window.Wello.Views.CardShowView = Backbone.CompositeView.extend({
 			card: this.model
 		})
 		this.$el.html(cardShow);
+		
+
 		return this;
 	}
 
