@@ -1,38 +1,41 @@
-window.Wello.Views.CardsNewView = Backbone.View.extend({
-	template: JST["card/card_new"],
+Trellino.Views.CardNew = Backbone.View.extend({
+  template: JST['card/new'],
+  
+  events: {
+    "submit #new-card-form": "createCard"
+  },
+  
+  initialize: function(options) {
+    this.list = options.list;
+  },
+    
+  render: function() {
+    var content = this.template();
+    
+    this.$el.html(content);
+    return this;
+  },
+  
+  createCard: function(event) {
+    event.preventDefault();
+    
+    var title = this.$('#card-title').val();
+    var description = this.$('#card-description').val();
 
-	initialize: function(options) {
-		this.list = options.list;
-	},
-
-	events: {
-		"click .card-new": "submit"
-	},
-
-	submit: function(event) {
-		var list = this.list;
-		event.preventDefault();
-		var params = $(event.target.parentElement).serializeJSON()["card"];
-		var newCard = new Wello.Models.Card(params);
-		newCard.save({}, {
-			success: function() {
-				list.cards().add(newCard);
-			}
-		});
-
-		$(event.currentTarget).prev().val("");
-		$(event.currentTarget).closest(".cards-new-form").next().css("display","initial")
-		$(event.currentTarget).closest(".cards-new-form").css("display","none")
-	},
-
-	render: function() {
-		var cardNewContent = this.template({
-			list: this.list
-		});
-
-		this.$el.html(cardNewContent);
-
-		return this;
-	}
-	
-})
+    var card = new Trellino.Models.Card({
+      list: this.list,
+      description: description,
+      title: title,
+      list_id: this.list.get('id'),
+      rank: this.list.cards().length + 1
+    });
+    
+    var newCard = this;
+    
+    card.save({}, {
+      success: function() {
+        newCard.list.cards().add(card);
+      }
+    });
+  }
+});

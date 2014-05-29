@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       @user.reset_session_token!
       session[:session_token] = @user.session_token
-      
+
       redirect_to root_url
     else
       render json: { errors: @user.errors.full_messages }

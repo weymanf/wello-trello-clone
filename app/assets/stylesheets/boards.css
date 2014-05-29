@@ -1,8 +1,8 @@
 li.list_entry, li.board_entry {
   
-  background-color: #fafafa;
-  border: 1px solid #d4d4d4;
-  
+  background-color: #BCAEAD;
+  border: 1px solid #BCAEAD;
+
   text-align: center;
   font-size: 18px;
   
@@ -14,8 +14,8 @@ li.list_entry, li.board_entry {
   padding:6px 12px 8px 12px;
   font-size:18px;
   margin-bottom: 15px;
-  
-  float: left;;
+  display: inline-block;
+  vertical-align: top;
 }
 
 button.newBoard {
@@ -26,4 +26,41 @@ button.newBoard {
 button.newList {
   display: block;
   clear: both;
+}
+
+#all-boards-list {
+/*  float: left;*/
+}
+
+#new-board-form label {
+  font-size: 16px;
+  width: 275px;
+}
+
+hr {
+  border: none !important;
+  border-top: dashed 2px #BCAEAD !important;
+  color: #E7E2D2 !important;
+  background-color: #E7E2D2 !important;
+}
+
+.one-boards-lists {
+  overflow-x: scroll; /* or auto, if you don't want the scroll bar visible all of the time. */
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+li.list_entry, li.board_entry {
+  white-space: normal;
+  word-wrap: break-word;
+  font-size: 14px;
+}
+
+.board-truncated-title {
+  font-size: 22px;
+}
+
+.home-link {
+  color: #53435A !important;
+  font-size: 22px;
 }

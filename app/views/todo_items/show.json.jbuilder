@@ -1,0 +1,1 @@
+json.partial!('todo_items/todo_item', item: @item, card: @card)

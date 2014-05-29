@@ -1,10 +1,34 @@
 class CardsController < ApplicationController
+  def index
+    @cards = Card.where("list_id = ?", params[:list_id])
+    @list = List.find(params[:list_id])
+
+    respond_to do |format|
+      format.json { render 'cards/index' }
+    end
+  end
   
   def create
     @card = Card.new(card_params)
+    @list = List.find(params[:list_id])
     
     if @card.save
-      render json: @card
+      respond_to do |format|
+        format.json { render 'cards/show' }
+      end
+    else
+      render json: { errors: @card.errors.full_messages }, status: 422
+    end
+  end
+  
+  def show
+    @card = Card.find(params[:id])
+    @list = List.find(params[:list_id])
+    
+    if @card
+      respond_to do |format|
+        format.json { render 'cards/show' }
+      end
     else
       render json: { errors: @card.errors.full_messages }, status: 422
     end
@@ -21,7 +45,9 @@ class CardsController < ApplicationController
     end
     
     if @card.save      
-      render json: @card
+      respond_to do |format|
+        format.json { render 'cards/show' }
+      end
     else
       render json: { errors: @card.errors.full_messages }, status: 422
     end

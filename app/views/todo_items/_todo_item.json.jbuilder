@@ -1,0 +1,1 @@
+json.(item, :id, :title, :done, :card_id, :card, :created_at, :updated_at)

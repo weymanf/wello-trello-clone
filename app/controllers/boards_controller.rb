@@ -2,7 +2,7 @@ class BoardsController < ApplicationController
   before_filter :require_login!
   
   def index
-    @boards = Board.all
+    @boards = Board.includes(:lists, :cards).for_member(current_user)
     
     @lists = []
     @boards.each { |board| @lists << board.lists }
@@ -11,24 +11,30 @@ class BoardsController < ApplicationController
     @boards.each { |board| @cards << board.cards }
     @myID = current_user.id
     
-
     respond_to do |format|
-      format.html { render :index}
-      format.json { render :json => @boards }
+      format.html { render :index }
+      format.json { render 'boards/index' }
     end
   end
   
   def show
     @board = Board.find(params[:id])
     @lists = @board.lists
-    render :show
+    
+    respond_to do |format|
+      format.json { render 'boards/show' } # eliminate json specification
+    end
   end
   
   def create
     @board = current_user.boards.build(board_params)
     
     if @board.save
-      render json: @board
+      @lists = @board.lists
+      
+      respond_to do |format|
+        format.json { render 'boards/show' } # eliminate json specification
+      end
     else
       render json: { errors: @board.errors.full_messages }, status: 422
     end

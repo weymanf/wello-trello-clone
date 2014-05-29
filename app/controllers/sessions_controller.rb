@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
     end
     
     session[:session_token] = nil
-    user.session_token = nil
+    user.reset_session_token!
     user.save!
   
     redirect_to new_session_url

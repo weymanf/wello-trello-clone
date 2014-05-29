@@ -1,33 +1,39 @@
-window.Wello.Views.ListNewView = Backbone.View.extend({
-	template: JST["list/list_form"],
+Trellino.Views.ListNew = Backbone.View.extend({
+  template: JST['list/new'],
+  
+  events: {
+    "click .newList": "createList"
+  },
+  
+  initialize: function(options) {
+    this.board = options.board;
+  },
+    
+  render: function() {
+    var content = this.template();
+    
+    this.$el.html(content);
+    return this;
+  },
+  
+  createList: function(event) {
+    event.preventDefault();
+    
+    var title = this.$('#list-title').val();
 
-	initialize: function(options) {
-		this.board = options.board;
-	},
-
-	events: {
-		"click .list-new": "submit"
-	},
-
-	submit: function(event) {
-		var view = this;
-
-		event.preventDefault();
-		var params = $(event.target.parentElement).serializeJSON()["list"];
-		var list = new Wello.Models.List(params);
-		this.board.lists().create(params);
-		$("#list-title").val("");
-	},
-
-	render: function() {
-		console.log(this.board.lists().length)
-		var listNewContent = this.template({
-			board: this.board
-		});
-
-		this.$el.html(listNewContent);
-
-		return this;
-	}
-	
-})
+    var list = new Trellino.Models.List({
+      board: this.board,
+      title: title,
+      board_id: this.board.get('id'),
+      rank: this.board.lists().length + 1
+    });
+    
+    var newList = this;
+    
+    list.save({}, {
+      success: function() {
+        newList.board.lists().add(list);
+      }
+    });
+  }
+});

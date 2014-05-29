@@ -3,6 +3,7 @@
 <head>
   <title>Wello</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <link href='http://fonts.googleapis.com/css?family=Astloch|UnifrakturMaguntia' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
@@ -11,7 +12,7 @@
     <div class="navbar-inner">
       <ul class="nav">
         <li>
-          <span class="title">Wello</span>
+          <span class="title"><a href="<%= root_url %>">Wello</a></span>
         </li>
       </ul>
     </div>

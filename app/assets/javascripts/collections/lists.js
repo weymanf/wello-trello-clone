@@ -1,18 +1,15 @@
-window.Wello.Collections.Lists = Backbone.Collection.extend({
-	model: Wello.Models.List,
-
-	compartor: function(list) {
-		return list.get("rank");
-	},
-
-	initialize: function(model, options) {
-		this.board = options.board
-	},
-
-
-	url: function () {
-		return '/boards/' + this.board.id + '/lists';
-	}
-
-
+Trellino.Collections.Lists = Backbone.Collection.extend({
+  model: Trellino.Models.List,
+  
+  initialize: function(models, options) {
+    this.board = options.board;
+  },
+  
+  url: function() {
+    return this.board.url() + "/lists";
+  },
+  
+  comparator: function(list) {
+    return list.get('rank');
+  }
 });

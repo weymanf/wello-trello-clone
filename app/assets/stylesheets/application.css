@@ -9,29 +9,61 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require jquery.ui.all
+ *= require font-awesome
  *= require_tree .
  */
-
-@import "bootstrap";  
-
 
 body {
   margin: 0;
   box-sizing: border-box;
   padding: 8px;
-  background-color: #daf1fb !important;
+  background-color: #E7E2D2 !important;
 }
 
-span.title {
+.board-title {
+ 
   font-weight: 700;
-  font-size: 28px;
+  font-size: 42px;
   position: relative;
-  top: 7px;
-  font-style: italic;
+  color: #434446 !important;
+  padding-bottom: 25px;
+}
+
+.boards-index-title {
+
+  font-weight: 700;
+  font-size: 32px;
+  position: relative;
+  color: #434446 !important;
+}
+
+span.title a {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 60px;
+  position: relative;
+  color: #434446 !important;
+  
+}
+
+.list-title {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 30px;
+  position: relative;
+  color: #434446 !important;
+ 
+}
+
+.navbar-inner {
+  background-image: none !important;
+  background-color: #6CC7B8 !important;
+  height: 60px;
 }
 
 input#logout, input#logout{
-  background-color: white;
+  background-color: #6CC7B8;
 }
 
 div#content {
@@ -41,15 +73,12 @@ div#content {
   padding: 10px;
   margin-bottom: 10px;
   
-  overflow-x: scroll;
-
-  padding-bottom: 300px;
 }
 
 .white_area {
   overflow: scroll;
-  background-color: white;
-  border: 1px dotted black;
+  background-color: #a59d9d;
+  border: 1px dashed #736d6d;
   border-radius: 4px;
   moz-border-radius: 4px;
   padding: 30px;
@@ -70,6 +99,7 @@ button#deleteBoard {
 a {
   text-decoration: none !important;
   font-weight: 600;
+  color: #434446 !important;
 }
 
 ul {
@@ -78,19 +108,18 @@ ul {
   margin: 0;
 }
 
-
 li {
   padding-top: 2px;
   padding-left: 0;
 }
 
-
 .hidden {
 	display: none;
 }
 
-input[type="text"] {
+input[type="text"], input[type="password"] {
   width: inherit;
+  background-color: #f2efe6 !important;
 }
 
 button, input[type="submit"] {
@@ -101,6 +130,19 @@ button, input[type="submit"] {
 }
 
 button:hover, input[type="submit"]:hover {
-  background-color: transparent;
-  color: blue;
+  background-color: #6CC7B8;
 }
+
+.delete:hover {
+  background-color: #B43548;
+}
+
+#logout:hover {
+  background-color: #B43548;
+}
+
+#login:hover {
+  background-color: #6CC7B8;
+}
+
+

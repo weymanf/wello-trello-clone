@@ -1,1 +1,1 @@
-json.partial!("boards/board", :board => @board, :lists => @lists)
+json.partial!('boards/board', board: @board, lists: @lists)

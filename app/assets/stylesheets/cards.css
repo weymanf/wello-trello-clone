@@ -1,26 +1,13 @@
-.card {
-  width: 100%;
-  display:inline-block;
-  margin-top: 2px;
-  border-radius: 2px;
-  background-color: white;
-  opacity: 0.9;
-  position: top;
-  max-width: 200px;
-  padding: 2px;
+.sortable-cards {
+  cursor: default;
+  min-height: 50px;
 }
 
-.card p {
-  max-width: 200px;
-  display: block
-  text-overflow: clip;
-   white-space: pre-wrap;      /* CSS3 */   
-   white-space: -moz-pre-wrap; /* Firefox */    
-   white-space: -pre-wrap;     /* Opera <7 */   
-   white-space: -o-pre-wrap;   /* Opera 7 */    
-   word-wrap: break-word;      /* IE */
+.sortable-cards li {
+  background-color: #cbc1c0;
+  padding: 5px;
+  margin: 10px;
 }
-
 
 .flexwidth {
   display: inline-block;
@@ -41,7 +28,6 @@
   border-radius: 5px;
   -moz-border-radius: 5px;
 }
-
 
 li.card_entry {
   cursor: pointer;
@@ -100,7 +86,7 @@ li.dragged {
 .cardDetail {
     padding: 20px;
     border: 1px solid black;
-    background-color: rgba(255, 255, 255, 255);
+    background-color: rgba(255, 255, 255, 1);
     position: fixed;
     
     overflow: auto;
@@ -118,14 +104,8 @@ li.dragged {
 span.deleteCard {
   margin-right: 9px;
   float: right;
-  
 }
 
-.cards-form{
-  margin-top: 5px;
-}
-
-.cards-show {
-  min-height: 20px;
-  min-width: 200px;
+#new-card-form {
+  display: none;
 }

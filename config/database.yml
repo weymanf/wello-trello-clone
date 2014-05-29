@@ -1,7 +1,8 @@
 
 development:
-  adapter: sqlite3
-  database: trellino_development
+  adapter: postgresql
+  username: postgres
+  database: otrello
   host: localhost
   pool: 5
   timeout: 5000

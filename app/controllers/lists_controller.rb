@@ -2,20 +2,19 @@ class ListsController < ApplicationController
   
   def index
     @lists = List.where("board_id = ?", params[:board_id])
-    render json: @lists
-  end
-  
-  def show
-    @list = List.find(params[:id])
-    @cards = @list.cards
-    render :show
+
+    respond_to do |format|
+      format.json { render 'lists/index' }
+    end
   end
   
   def create
     @list = List.new(list_params)
     
     if @list.save
-      render json: @list
+      respond_to do |format|
+        format.json { render 'lists/show' }
+      end
     else
       render json: { errors: @list.errors.full_messages }, status: 422
     end
@@ -26,7 +25,9 @@ class ListsController < ApplicationController
     @list.update_attributes(list_params)
     
     if @list.save
-      render json: @list
+      respond_to do |format|
+        format.json { render 'lists/show' }
+      end
     else
       render json: { errors: @list.errors.full_messages }, status: 422
     end

@@ -1,0 +1,9 @@
+<span class="list-title"><%= list.escape('title') %></span>
+
+<ul class="sortable-cards" id="list-cards-<%= list.escape('id') %>" data-id="<%= list.escape('id') %>"></ul>
+
+<hr>
+
+<div id="new-list-<%= list.escape('id') %>-card"></div>
+<br>
+<button class="delete-list delete" data-id="<%= list.escape('id') %>">Delete List</button>

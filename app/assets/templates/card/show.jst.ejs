@@ -1,0 +1,10 @@
+<span data-id="<%= card.escape('id') %>" data-list="<%= card.escape('list_id') %>">
+  <%= card.escape('title') %>
+  <% if (card.get('description')) { %>
+  <br><i class="fa fa-minus fa-rotate-180"></i> <%= card.escape('description') %>
+  <% } %>
+  <button class="delete-card delete" data-id="<%= card.escape('id') %>"><i class="fa fa-trash-o"></i></button></span>
+
+<div id="new-card-<%= card.escape('id') %>-todo"></div>
+
+

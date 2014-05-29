@@ -1,45 +1,35 @@
-window.Wello.Routers.AppRouter = Backbone.Router.extend({
-	routes: {
-		"": "boardIndex",
-		"boards/new": "boardNew",
-		"boards/:id": "boardShow"
-	},
-
-	boardIndex: function() {
-		var boardIndexView = new Wello.Views.BoardIndexView({
-			collection: Wello.Collections.boards
-		});
-		Wello.Collections.boards.fetch();
-		this._swapView(boardIndexView);
-	},
-
-	boardNew: function() {
-		var board = new Wello.Models.Board();
-		var newView = new Wello.Views.BoardFormView({
-			model: board,
-			collection: Wello.Collections.boards
-		});
-
-		this._swapView(newView);
-	},
-
-	boardShow: function(id) {
-		var board = Wello.Collections.boards.getOrFetch(id)
-
-		var showView = new Wello.Views.BoardShowView({ 
-			model: board
-		});
-
-		this._swapView(showView);
-	},
-
-	_swapView: function(view) {
-		if(this.currentView) {
-			this.currentView.remove();
-		}
-
-		this.currentView = view;
-		$("#content").html(view.render().$el);
-	}
-
+Trellino.Routers.AppRouter = Backbone.Router.extend({
+  routes: {
+    '': 'index',
+    'boards/:id': 'showBoardDetail'
+  },
+  
+  index: function() {
+    var boardIndex = new Trellino.Views.BoardIndex({
+      collection: new Trellino.Collections.Boards()
+    });
+    
+    boardIndex.collection.fetch();
+    this._swapView(boardIndex, $('#content'));
+  },
+  
+  showBoardDetail: function(board_id) {
+    var board = Trellino.Collections.boards.getOrFetch(board_id);
+    board.lists().fetch();
+    
+    var boardShowDetail = new Trellino.Views.BoardShowDetail({
+      model: board
+    });
+    
+    this._swapView(boardShowDetail, $('#content'));
+  },
+  
+  _swapView: function(view, $destinationEl) {
+    if (this._currentView) {
+      this._currentView.remove();
+    }
+    
+    this._currentView = view;
+    $destinationEl.html(view.render().$el);
+  }
 });
