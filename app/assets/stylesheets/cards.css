@@ -4,10 +4,19 @@
 }
 
 .sortable-cards li {
-  background-color: #cbc1c0;
+  background-color: white;
   padding: 5px;
-  margin: 10px;
+  margin-top: 10px;
+  margin-right: 18px;
+  opacity: .7;
+  border-radius: 2px;
+
 }
+
+.sortable-cards li:hover {
+  opacity: 1;
+}
+
 
 .flexwidth {
   display: inline-block;

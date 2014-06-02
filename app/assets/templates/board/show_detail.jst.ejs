@@ -1,8 +1,8 @@
-<div class="board-title"><%= board.escape('title') %></div>
+<div class="board-title"><%= board.escape('title') %> <button class="delete-board delete" data-id="<%= board.escape('id') %>">Delete Board</button></div> 
 
 <div class="one-boards-lists"><ul id="board-lists"></ul></div>
 <hr>
 <div id="new-list"></div>
 
-<p><button class="delete-board delete" data-id="<%= board.escape('id') %>">Delete Board</button></p>
+<br>
 <p><a href="#" class="home-link">Back to Index</a></p>

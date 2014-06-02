@@ -1,7 +1,7 @@
 li.list_entry, li.board_entry {
   
-  background-color: #BCAEAD;
-  border: 1px solid #BCAEAD;
+  background-color: #feceea;
+  
 
   text-align: center;
   font-size: 18px;
@@ -10,6 +10,7 @@ li.list_entry, li.board_entry {
   margin: 3px;
   border-radius: 4px;
   border-radius: 4px;
+  padding: 5px;
 
   padding:6px 12px 8px 12px;
   font-size:18px;

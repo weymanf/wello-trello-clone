@@ -18,7 +18,7 @@ body {
   margin: 0;
   box-sizing: border-box;
   padding: 8px;
-  background-color: #E7E2D2 !important;
+  background-color: white !important;
 }
 
 .board-title {
@@ -43,7 +43,7 @@ span.title a {
   font-size: 60px;
   line-height: 60px;
   position: relative;
-  color: #434446 !important;
+  color: #59467C !important;
   
 }
 
@@ -58,7 +58,7 @@ span.title a {
 
 .navbar-inner {
   background-image: none !important;
-  background-color: #6CC7B8 !important;
+  background-color: #ADD8E6 !important;
   height: 60px;
 }
 
@@ -145,4 +145,43 @@ button:hover, input[type="submit"]:hover {
   background-color: #6CC7B8;
 }
 
+@-webkit-keyframes pop {
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
 
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes pop {
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.pop {
+  display: inline-block;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.pop:hover, .pop:focus, .pop:active {
+  -webkit-animation-name: pop;
+  animation-name: pop;
+  -webkit-animation-duration: 1.0s;
+  animation-duration: 1.0s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
